@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script defer src="./js/charts.js" type="module"></script>
+    <script defer src="./js/script.js"></script>
+    <title>We Bull</title>
+</head>
+
+<body>
+    <header>
+        <ul>
+            <li id="toggle-sidebar">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-lg" fill="none" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" class="green-stroke" stroke-width="2"
+                        d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" class="grey-stroke" stroke-width="2"
+                        d="M5 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" class="red-stroke" stroke-width="2"
+                        d="M5 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0z" />
+                </svg>
+            </li>
+            <li class="user-avatar">
+                <img src="./images/user-img.jpg" alt="user-avatar">
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                </svg>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                </svg>
+            </li>
+        </ul>
+        <div class="search">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon-sm" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+            <input type="text" placeholder="Symbol/Name">
+        </div>
+    </header>
+    <aside>
+        <ul id="navigation">
+            <li>
+                <img src="./images/webull-logo.png" alt="WeBull"><span>
+                    <h1>We Bull</h1>
+                </span>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                </svg>
+                <span>Favourites</span>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                </svg>
+                <span>Trends</span>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Markets</span>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+                <span>Filters</span>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                </svg>
+                <span>Wallet</span>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Exchange</span>
+            </li>
+        </ul>
+        <ul>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-sm" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span>Settings</span>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-sm" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                        d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+                <span>Support</span>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <div class="widget full-span">
+            <ul class="widget__tabs">
+                <li class="active">United States</li>
+                <li>Hong Kong</li>
+                <li>India</li>
+                <li>Global</li>
+                <li>Cryptos</li>
+            </ul>
+        </div>
+
+        <div class="widget wrapper">
+            <div class="widget__head">
+                <h3 class="widget__head-title">Index</h3>
+            </div>
+            <div class="widget__body" style="display: flex;">
+                <div class="index__fund">
+                    <div class="index__fund-item active">
+                        <p>DOW JONES</p>
+                        <p>28,823.77</p>
+                        <span class="red">-133.13-0.46%</span>
+                    </div>
+                    <div class="index__fund-item">
+                        <p>S&P 500</p>
+                        <p>3,265.35</p>
+                        <span class="red">-9.35-0.29%</span>
+                    </div>
+                    <div class="index__fund-item">
+                        <p>NASDAQ</p>
+                        <p>9,178.86</p>
+                        <span class="red">-24.57-0.27%</span>
+                    </div>
+                </div>
+                <div style="height: 100%; width: 100%;" id="areaChart"></div>
+                <div class="index__fund-graph">
+                    <div>29,000.00</div>
+                    <div>29,950.00</div>
+                    <div>29,900.00</div>
+                    <div>29,850.00</div>
+                    <div class="target">29,800.77</div>
+                    <div>29,70.00</div>
+                    <div>29,700.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="widget wrapper">
+            <div class="widget__head">
+                <h3 class="widget__head-title">Net Inflow</h3>
+                <div style="display: flex; gap: 10px">
+                    <div><span
+                            style="display: inline-block; width: 0.55rem; height: 0.55rem; background-color: #fd7931;"></span>
+                        NASDAQ</div>
+                    <div><span
+                            style="display: inline-block; width: 0.55rem; height: 0.55rem; background-color: #1782fa;"></span>
+                        NYSE</div>
+                </div>
+            </div>
+            <div class="widget__body">
+                <div style="height: 100%; width: 100%;" id="lineChart"></div>
+            </div>
+        </div>
+        <div class="widget wrapper">
+            <div class="widget__head">
+                <h3 class="widget__head-title">Advancers & Decliners Distribution</h3>
+                <div>Total:5,098</div>
+            </div>
+            <div class="widget__body">
+                <div style="height: 100%; width: 100%;" id="barCart"></div>
+                <div class="sectors">
+                    <div class="sector four red-bg">Decliners 2,833</div>
+                    <div class="sector two grey-bg"></div>
+                    <div class="sector three green-bg">Advancers 2,021</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="widget wrapper">
+            <div class="widget__head">
+                <h3 class="widget__head-title">Rankings</h3>
+                <a class="widget__head-actions">All</a>
+            </div>
+            <div class="widget__body">
+                <ul>
+                    <li class="active">Most Active</li>
+                    <li>Top Gainers</li>
+                    <li>Top Losers</li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th class="right">Price</th>
+                            <th class="right">Volume</th>
+                            <th class="right">% Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CHK</td>
+                            <td>Chesapeake Enrgy</td>
+                            <td class="right red">0.7310</td>
+                            <td class="right">68.20M</td>
+                            <td class="right red">-7.02%</td>
+                        </tr>
+                        <tr>
+                            <td>GE</td>
+                            <td>GE</td>
+                            <td class="right red">11.67</td>
+                            <td class="right">58.67M</td>
+                            <td class="right red">-2.02%</td>
+                        </tr>
+                        <tr>
+                            <td>SRNE</td>
+                            <td>Sorrento Thera</td>
+                            <td class="right green">4.760</td>
+                            <td class="right">48.39M</td>
+                            <td class="right green">+39.59%</td>
+                        </tr>
+                        <tr>
+                            <td>AMD</td>
+                            <td>AMD</td>
+                            <td class="right red">48.17</td>
+                            <td class="right">44.22M</td>
+                            <td class="right red">-1.64%</td>
+                        </tr>
+                        <tr>
+                            <td>CPAH</td>
+                            <td>CounterPath</td>
+                            <td class="right green">3.920</td>
+                            <td class="right">42.02M</td>
+                            <td class="right green">+296.00%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="widget wrapper">
+            <div class="widget__head">
+                <h3 class="widget__head-title">Trends</h3>
+            </div>
+            <div class="widget__body">
+                <ul>
+                    <li>5min Ranking</li>
+                    <li class="active">Ext Hours Ranking</li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th class="right">Price</th>
+                            <th class="right">% Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>VRNA</td>
+                            <td>Verona Pharma</td>
+                            <td class="right green">9.50</td>
+                            <td class="right green">+59.40%</td>
+                        </tr>
+                        <tr>
+                            <td>LMFA</td>
+                            <td>LM Funding</td>
+                            <td class="right green">1.450</td>
+                            <td class="right green">+57.43%</td>
+                        </tr>
+                        <tr>
+                            <td>BBI</td>
+                            <td>Brickell Biotech I...</td>
+                            <td class="right green">1.720</td>
+                            <td class="right green">+13.16%</td>
+                        </tr>
+                        <tr>
+                            <td>SMFG</td>
+                            <td>SMFG</td>
+                            <td class="right green">8.00</td>
+                            <td class="right green">+9.29%</td>
+                        </tr>
+                        <tr>
+                            <td>XSPA</td>
+                            <td>XPRESSA GROUP</td>
+                            <td class="right green">0.6500</td>
+                            <td class="right green">+9.28%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="widget wrapper">
+            <div class="widget__head">
+                <h3 class="widget__head-title">Hot ETFs</h3>
+                <a class="widget__head-actions">All</a>
+            </div>
+            <div class="widget__body">
+                <ul>
+                    <li class="active">Market</li>
+                    <li>VIX</li>
+                    <li>Industry</li>
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th class="right">Price</th>
+                            <th class="right">% Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>EDC</td>
+                            <td>Direxion Daily MSCI Em Mkt...</td>
+                            <td class="right green">93.64</td>
+                            <td class="right green">+1.56%</td>
+                        </tr>
+                        <tr>
+                            <td>INDL</td>
+                            <td>Direxion Daily MSCI India Mkt...</td>
+                            <td class="right green">70.96</td>
+                            <td class="right green">+1.46%</td>
+                        </tr>
+                        <tr>
+                            <td>SRTY</td>
+                            <td>ProShares UltraPro Short Ru...</td>
+                            <td class="right green">18.29</td>
+                            <td class="right green">+1.44%</td>
+                        </tr>
+                        <tr>
+                            <td>SDOW</td>
+                            <td>ProShares UltraPro Short D...</td>
+                            <td class="right green">36.86</td>
+                            <td class="right green">+1.40%</td>
+                        </tr>
+                        <tr>
+                            <td>TZA</td>
+                            <td>Direxion Daily Small Cap Be...</td>
+                            <td class="right green">35.77</td>
+                            <td class="right green">+1.36%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="widget wrapper full-span">
+            <div class="widget__head">
+                <h3 class="widget__head-title">Hot Industries</h3>
+                <a class="widget__head-actions">All</a>
+            </div>
+            <div class="widget__body">
+                <div class="industries">
+                    <div class="industries__item">
+                        <div class="industries__item-head">
+                            <h3>Investment Trusts</h3>
+                            <span class="green">+4.43%</span>
+                        </div>
+                        <div class="sectors">
+                            <div class="sector three green-bg">3</div>
+                        </div>
+                        <div class="industries__item-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>WINS</td>
+                                        <td>WINS Fin Hldg</td>
+                                        <td class="right green">11.08</td>
+                                        <td class="right green">+6.69%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MARPS</td>
+                                        <td>Marine Petro Tr</td>
+                                        <td class="right green">2.070</td>
+                                        <td class="right green">+5.62%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SAR</td>
+                                        <td>Saratoga Invtmt</td>
+                                        <td class="right green">26.74</td>
+                                        <td class="right green">+2.65%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="industries__item">
+                        <div class="industries__item-head">
+                            <h3>Uranium</h3>
+                            <span class="green">+3.09%</span>
+                        </div>
+                        <div class="sectors">
+                            <div class="sector two red-bg">2</div>
+                            <div class="sector five green-bg">6</div>
+                        </div>
+                        <div class="industries__item-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>CCJ</td>
+                                        <td>Cameco</td>
+                                        <td class="right green">8.95</td>
+                                        <td class="right green">+3.95%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>URG</td>
+                                        <td>Ur-Energy</td>
+                                        <td class="right green">0.5700</td>
+                                        <td class="right green">+3.54%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>LEU</td>
+                                        <td>CENTRUS ENERGY</td>
+                                        <td class="right green">6.78</td>
+                                        <td class="right green">+3.35%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>WWR</td>
+                                        <td>WESTWATER RES</td>
+                                        <td class="right green">2.230</td>
+                                        <td class="right green">+0.87%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="industries__item">
+                        <div class="industries__item-head">
+                            <h3>Precious Metals & Minerals</h3>
+                            <span class="green">+1.88%</span>
+                        </div>
+                        <div class="sectors">
+                            <div class="sector green-bg">10</div>
+                        </div>
+                        <div class="industries__item-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>ALUMN</td>
+                                        <td>GOLDEN MIN</td>
+                                        <td class="right green">0.3246</td>
+                                        <td class="right green">+6.08%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PLG</td>
+                                        <td>Platinum Group</td>
+                                        <td class="right green">1.780</td>
+                                        <td class="right green">+4.71%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SVM</td>
+                                        <td>Silvercorp Metal</td>
+                                        <td class="right green">5.49</td>
+                                        <td class="right green">+3.39%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SILV</td>
+                                        <td>Silvercrest</td>
+                                        <td class="right green">6.37</td>
+                                        <td class="right green">+3.24%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="industries__item">
+                        <div class="industries__item-head">
+                            <h3>Homebuilding</h3>
+                            <span class="green">+2.20%</span>
+                        </div>
+                        <div class="sectors">
+                            <div class="sector three red-bg">5</div>
+                            <div class="sector three grey-bg">5</div>
+                            <div class="sector five green-bg">13</div>
+                        </div>
+                        <div class="industries__item-body">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td>ALUMN</td>
+                                        <td>GOLDEN MIN</td>
+                                        <td class="right green">0.3246</td>
+                                        <td class="right green">+6.08%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PLG</td>
+                                        <td>Platinum Group</td>
+                                        <td class="right green">1.780</td>
+                                        <td class="right green">+4.71%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SVM</td>
+                                        <td>Silvercorp Metal</td>
+                                        <td class="right green">5.49</td>
+                                        <td class="right green">+3.39%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SILV</td>
+                                        <td>Silvercrest</td>
+                                        <td class="right green">6.37</td>
+                                        <td class="right green">+3.24%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <ul>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-xs" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                        d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+            </li>
+            <li>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon-xs green" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"
+                        d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
+                </svg>
+            </li>
+        </ul>
+        <div>
+            Eastern Time 01/01/2022 12:45:03
+        </div>
+    </footer>
+</body>
+
+</html>
